@@ -8,7 +8,7 @@ Ga erover met de muis voor het verbruik in het 5-uursvenster en de week, telkens
 ## Vereisten
 
 - Windows met Windows PowerShell 5.1
-- Python 3 via de `py`-launcher, plus `py -3 -m pip install websockets` (enkel nodig voor Codex)
+- Python 3 (`py`, `python3` of `python`; het script kiest de eerste die bestaat), plus `pip install websockets` (enkel nodig voor Codex)
 - Claude: aangemeld in Claude Code (leest `~/.claude/.credentials.json`)
 - Codex: Codex geïnstalleerd met de app-server daemon (`~/.codex/packages/app-server-daemon`). Het script start de daemon zelf.
 

@@ -58,9 +58,13 @@ function Set-TrayText($icon, $text) {
     if ($icon.Visible) { [void][Windows.Forms.NotifyIcon].GetMethod('UpdateIcon', $flags).Invoke($icon, @($true)) }
 }
 
+# Use the py launcher when installed, otherwise python3 or python from PATH.
+$Python = @('py', 'python3', 'python' | Where-Object { Get-Command $_ -ErrorAction SilentlyContinue })[0]
+$PyArgs = if ($Python -eq 'py') { @('-3') } else { @() }
+
 # Returns the provider's windows, or $null when the read failed.
 function Read-Limits($key) {
-    $json = & py -3 (Join-Path $PSScriptRoot 'limits.py') $key 2> $null
+    $json = & $Python @PyArgs (Join-Path $PSScriptRoot 'limits.py') $key 2> $null
     if ($LASTEXITCODE -ne 0 -or -not $json) { return $null }
     try { $json | ConvertFrom-Json } catch { $null }
 }
