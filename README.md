@@ -21,6 +21,10 @@ powershell -STA -WindowStyle Hidden -ExecutionPolicy Bypass -File .\Tray-Limits.
 Wil je het automatisch laten starten bij aanmelden, voer dan eenmalig `.\Install-TrayStartup.ps1` uit.
 Afsluiten doe je via rechtermuisklik → **Afsluiten**.
 
+**Eenmalige manuele stap:** Windows 11 verbergt nieuwe icoontjes achter het pijltje **^** rechtsonder.
+Om ze altijd te zien: **Instellingen → Persoonlijke instellingen → Taakbalk → Overige systeemvakpictogrammen**
+en zet **Windows PowerShell** aan (mogelijk twee keer, één per icoon), of sleep ze vanuit het **^**-menu naar de taakbalk.
+
 Testen zonder tray: `py -3 limits.py claude` of `py -3 limits.py codex` print de vensters als JSON.
 
 Codex wordt elke minuut opgevraagd, Claude om de 5 minuten (anders geeft de API een 429).
